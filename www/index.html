@@ -1,0 +1,233 @@
+<!doctype html>
+<html>
+
+
+<body spellcheck="true">
+
+    <!--<script src="./lib/es6-promise.min.js"></script>-->
+    <!--<script src="./lib/nativescript-webview-interface.js"></script>-->
+    <!--<script src="./index.js"></script>-->
+    <script src="./lib/commonjs.js"></script>
+    <link rel="stylesheet" type="" href="./lib/stylesheet.css" />
+
+
+    <table id="tblEHRSpeechNote" style="width:99%" emrremoveelementbecausedatanotavailable="0">
+        <tbody>
+            <tr id="trSpeechNotes">
+                <td id="tdSpeechNotes" style="text-align:center; padding-bottom:12px" colspan="6">
+                    <b>Occupational Therapy</b>
+                </td>
+            </tr>
+            <tr id="trSpeechClientName" emrremoveelementbecausedatanotavailable="0">
+                <td id="tdSpeechClientName" style="width:14%; vertical-align:top">
+                    <b>Client Name:</b>
+                </td>
+                <td id="tdtaSpeechClientName" style="width:34%; vertical-align:top" emrremoveelementbecausedatanotavailable="0">
+                    <textarea id="taSpeechClientName" name="taSpeechClientName" emrmandatoryelement="Message" displayname="Speech Client Name" datatype="3" style="width: 98%; min-height: 18px; vertical-align: top; height: 22px;" rows="1"></textarea>
+                </td>
+                <td id="tdSpeechClient" style="width:9%; vertical-align:top">
+                    <b>Client #:</b>
+                </td>
+                <td id="tdtaSpeechClient" style="width:21%; vertical-align:top">
+                    <textarea readonly="" id="taSpeechClient" name="taSpeechClient" displayname="Speech Client" datatype="3" style="width:98%; min-height:18px; !important; vertical-align:top" rows="1"></textarea>
+                </td>
+                <td id="tdDOB" style="width:5%; vertical-align:top">
+                    <b>DOB:</b>
+                </td>
+                <td id="tdDOBdata" style="vertical-align:top" emrremoveelementbecausedatanotavailable="0">
+                    <textarea id="taDOB" thisisdosfieldeasyform="1" placeholder="MM/DD/YYYY" name="taDOB" displayname="DOB" datatype="0" style="width: 97%; min-height: 18px; vertical-align: top; height: 22px;" rows="1"></textarea>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="divtblRc" style="padding-top:12px"></div>
+    <table id="tblRc" style="width:99%">
+        <tbody>
+            <tr id="trRc">
+                <td id="tdRc" style="width:2%;padding-top:5px">
+                    <input type="checkbox" id="chkRc" onchange="Hidden();Rc();" name="chkSpeech" displayname="Rc" datatype="6">
+                </td>
+                <td id="tdlblRc" style="width:15%">
+                    <label id="lblchkRc" for="chkRc"><b>Rc</b></label>
+                </td>
+                <td id="tdKai" style="width:2%;padding-top:5px">
+                    <input type="checkbox" id="chkKai" onchange="Hidden();" name="chkSpeech" displayname="Kai" datatype="6">
+                </td>
+                <td id="tdlblKai" style="width:15%">
+                    <label id="lblchkKai" for="chkKai"><b>Kai</b></label>
+                </td>
+                <td id="tdEs" style="width:2%;padding-top:5px">
+                    <input type="checkbox" id="chkEs" onchange="Hidden();" name="chkSpeech" displayname="Es" datatype="6">
+                </td>
+                <td id="tdlblEs" style="width:15%">
+                    <label id="lblchkEs" for="chkEs"><b>Es</b></label>
+                </td>
+                <td id="tdIns" style="width:2%;padding-top:5px">
+                    <input type="checkbox" onchange="Hidden();" id="chkIns" name="chkSpeech" displayname="Ins" datatype="6">
+                </td>
+                <td id="tdlblIns">
+                    <label id="lblchkIns" for="chkIns"><b>Ins</b></label>
+                </td>
+            </tr>
+            <tr id="trAssessment">
+                <td id="tdAssessment" style="padding-top:14px">
+                    <input type="checkbox" id="chkAssessment" name="chkAssessment" displayname="Assessment" datatype="6">
+                </td>
+                <td id="tdlblAssessment" style="padding-top:12px">
+                    <label id="lblchkAssessment" for="chkAssessment"><b>Assessment</b></label>
+                </td>
+                <td id="tdFeeding" style="padding-top:14px">
+                    <input type="checkbox" id="chkFeeding" name="chkFeeding" displayname="Feeding" datatype="6">
+                </td>
+                <td id="tdlblFeeding" style="padding-top:12px">
+                    <label id="lblchkFeeding" for="chkFeeding"><b>Feeding</b></label>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="divtblSpeechDate" style="padding-top:12px"></div>
+    <table id="tblSpeechDate" style="width:99%; border-collapse:collapse" emrremoveelementbecausedatanotavailable="1">
+        <tbody>
+            <tr id="trSpeechDate">
+                <td id="tdSpeechDate" style="width:24%; vertical-align:top; border:1px solid black">
+                    <b>Date:</b>
+                </td>
+                <td id="tdSpeechProgresstoGoal" style="vertical-align:top; border:1px solid black" colspan="3">
+                    <b>Progress to Goal/Objectives:</b>
+                </td>
+            </tr>
+            <tr id="trtaSpeechDate" emrremoveelementbecausedatanotavailable="1">
+                <td id="tdtaSpeechDate" style="vertical-align:top; border:1px solid black">
+                    <textarea id="taSpeechDate" placeholder="MM/DD/YYYY" name="taSpeechDate" displayname="Speech Date" datatype="0" style="width:98%; min-height:18px; !important; vertical-align:top" rows="1"></textarea>
+                </td>
+                <td id="tdtaSpeechProgresstoGoal" style="vertical-align:top; border:1px solid black" colspan="3" rowspan="2" emrremoveelementbecausedatanotavailable="1">
+                    <textarea id="taSpeechProgresstoGoal" name="taSpeechProgresstoGoal" displayname="Speech Progress to Goal" datatype="3" style="width: 99%; min-height: 39px; vertical-align: top; height: 43px;" rows="1" emrremoveelementbecausedatanotavailable="1"></textarea>
+                </td>
+            </tr>
+            <tr id="trSpeechLength">
+                <td id="tdSpeechLength" style="vertical-align:top; border:1px solid black">
+                    <label id="lblspeechlength" for="taSpeechLength"><b>Length:</b></label>
+                </td>
+            </tr>
+            <tr id="trtaSpeechLength">
+                <td id="tdtaSpeechLength" style="vertical-align:top; border:1px solid black">
+                    <textarea emrmandatoryelement="1" id="taSpeechLength" name="taSpeechLength" displayname="Speech Length" datatype="5" style="width:77%; min-height:18px; !important; vertical-align:top" rows="1"></textarea> hr(s)
+                </td>
+                <td id="tdSpeechEmotionalFunctioning" style="vertical-align:top; border:1px solid black" colspan="3">
+                    <b>Emotional Functioning:</b>
+                </td>
+            </tr>
+            <tr id="trSpeechNameofTherapist1">
+                <td id="tdSpeechNameofTherapist1" style="vertical-align:top; border:1px solid black">
+                    <b>Name of Therapist:</b>
+                </td>
+                <td id="tdtaSpeechEmotionalFunctioning" style="vertical-align:top; border:1px solid black" colspan="3" rowspan="2">
+                    <textarea id="taSpeechEmotionalFunctioning" name="taSpeechEmotionalFunctioning" displayname="Speech Emotional Functioning" datatype="3" style="width:99%; min-height:39px; !important; vertical-align:top" rows="1"></textarea>
+                </td>
+            </tr>
+            <tr id="trSpeechNameofTherapist2">
+                <td id="tdSpeechNameofTherapist2" style="vertical-align:top; border:1px solid black">
+                    <textarea id="taSpeechNameofTherapist" name="taSpeechNameofTherapist" displayname="Speech Name of Therapist" datatype="3" style="width:98%; min-height:18px; !important; vertical-align:top" rows="1"></textarea>
+                </td>
+            </tr>
+            <tr id="trSpeechTherapistSignature">
+                <td id="tdSpeechTherapistSignature" style="vertical-align:top; border:1px solid black">
+                    <b>Therapist Signature:</b>
+                </td>
+                <td id="tdSpeechParentProgress" style="vertical-align:top; border:1px solid black" colspan="3">
+                    <b>Parent Progress to Goal/Other Clinical Notes:</b>
+                </td>
+            </tr>
+            <tr id="trimgSpeechTherapistSignature">
+                <td id="tdimgSpeechTherapistSignature" style="vertical-align:top; border:1px solid black">
+                    <img title="Click here to sign" alt="Signature" style="cursor: pointer;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAACtklEQVRIie2Tz2sVZxSGn/eSGUSsZBGCi4uCpNaFtKJFRbHOfKgtCNKiVVyICNIuLGTnPyAqgiB2oa4KXZXiQmgXgpSZj7ZY0RKoWvqDrCQoZBGCqFxmJG8X93pj4tVcxIUUz+wOZ85z3vc7B97Gmx561R9DWQ2AvrL8e5mlvy5UP/BKkFgBuoA5IjQOvPtaQCHWqe19kmKRJRM2pySOWAbzbz89FrQuxPoT2wcl/Wj8OWYA2I0A87ekLUWWTC3U54WKQqwBThgPIg4VWfIkxGrG8D0AZlLSrn4gAI1eybysGsbngEego2WWPsnL6iObbwEE05ImjQ/nZdWX/T2ty8vqrNA/iItFlhBivQbzC2IQ0zJ8jHxD6BhmF2K0yJLrIdargOXANDBle1piqsjS50GhrFch9hZZchIgxLoJ/AY0OyWjRZZ83a2P9QhwGnhoWCt4/9l+treVefpzD9neZ3O+o2zQ+IpQEwPiKszdsiJLxoE9Heinti8jEMI2kjYDc0Eh1mDeKfNkKsQa25cwa4wROo+5b3ztRe8AjLVnBeOnufdg3jLYXodohrJqAJuEtgshKVr+zvI1RBZivbMnxp4QaonZDxh+DiTpM+C2YQjzJeIO4hvjMWCHrA+FhsFFL06RpzPGD7rctqoGPHNHIdYDtgEmgc3gRaAPMBvKPL3+Eru60bm9pd3B24oezAHZXiJpL7CkI3djkSUzoaxXA32BbC+XtGheemIOCFgJLMY0gYfg46GsWmDysroHLJW0DFhB+1ZmgJvAPWAEs9V4w+wOABikv7qgjuSVwHrLf8o6UORpEWI1THspmsBd2+OIn4CG0BCwzPZiwVXDGeCc5S/myRybVWS2AxvBQ0j7izyJAEWWTgI/9GNbZ+ALmD+QH2O1EC3gVrcgj9XOEKuRfhu+jf9n/AfHki0S/5bmsQAAAABJRU5ErkJggg=="
+                        id="imgSpeechTherapistSignature" name="imgSpeechTherapistSignature" displayname="Speech Therapist Signature" emrsignaturetype="1" datatype="7">
+                </td>
+                <td id="tdtaSpeechParentProgress" style="vertical-align:top; border:1px solid black" colspan="3">
+                    <textarea id="taSpeechParentProgress" name="taSpeechParentProgress" displayname="Speech Parent Progress" datatype="3" style="width:99%; min-height:18px; !important; vertical-align:top" rows="1"></textarea>
+                </td>
+            </tr>
+            <tr id="trSpeechSupervisorSignature">
+                <td id="tdSpeechSupervisorSignature" style="vertical-align:top; border:1px solid black; border-right:none">
+                    <b>Supervisor Signature:</b>
+                </td>
+                <td id="tdimgSpeechSupervisorSignature" style="vertical-align:top; border:1px solid black;border-left:none" colspan="3">
+                    <img title="Click here to sign" alt="Signature" style="cursor: pointer;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAACtklEQVRIie2Tz2sVZxSGn/eSGUSsZBGCi4uCpNaFtKJFRbHOfKgtCNKiVVyICNIuLGTnPyAqgiB2oa4KXZXiQmgXgpSZj7ZY0RKoWvqDrCQoZBGCqFxmJG8X93pj4tVcxIUUz+wOZ85z3vc7B97Gmx561R9DWQ2AvrL8e5mlvy5UP/BKkFgBuoA5IjQOvPtaQCHWqe19kmKRJRM2pySOWAbzbz89FrQuxPoT2wcl/Wj8OWYA2I0A87ekLUWWTC3U54WKQqwBThgPIg4VWfIkxGrG8D0AZlLSrn4gAI1eybysGsbngEego2WWPsnL6iObbwEE05ImjQ/nZdWX/T2ty8vqrNA/iItFlhBivQbzC2IQ0zJ8jHxD6BhmF2K0yJLrIdargOXANDBle1piqsjS50GhrFch9hZZchIgxLoJ/AY0OyWjRZZ83a2P9QhwGnhoWCt4/9l+treVefpzD9neZ3O+o2zQ+IpQEwPiKszdsiJLxoE9Heinti8jEMI2kjYDc0Eh1mDeKfNkKsQa25cwa4wROo+5b3ztRe8AjLVnBeOnufdg3jLYXodohrJqAJuEtgshKVr+zvI1RBZivbMnxp4QaonZDxh+DiTpM+C2YQjzJeIO4hvjMWCHrA+FhsFFL06RpzPGD7rctqoGPHNHIdYDtgEmgc3gRaAPMBvKPL3+Eru60bm9pd3B24oezAHZXiJpL7CkI3djkSUzoaxXA32BbC+XtGheemIOCFgJLMY0gYfg46GsWmDysroHLJW0DFhB+1ZmgJvAPWAEs9V4w+wOABikv7qgjuSVwHrLf8o6UORpEWI1THspmsBd2+OIn4CG0BCwzPZiwVXDGeCc5S/myRybVWS2AxvBQ0j7izyJAEWWTgI/9GNbZ+ALmD+QH2O1EC3gVrcgj9XOEKuRfhu+jf9n/AfHki0S/5bmsQAAAABJRU5ErkJggg=="
+                        id="imgSpeechSupervisorSignature" name="imgSpeechSupervisorSignature" displayname="Speech Supervisor Signature" emrsignaturetype="1" datatype="7">
+                </td>
+                <!--<td id="tdSpeechSupervisorSignatureDate" style="width:6%; vertical-align:top; border:1px solid black; border-right:none; border-left:none">
+			<b>Date:</b>
+		</td>
+		<td id="tdtaSpeechSupervisorSignatureDate" style="vertical-align:top; border:1px solid black; border-left:none">	
+			<textarea id="taSpeechSupervisorSignatureDate" name="taSpeechSupervisorSignatureDate" displayname="Speech Supervisor Signature Date" placeholder="MM/DD/YYYY" datatype="0" style="width:97%; min-height:18px; !important; vertical-align:top" rows="1"></textarea>
+		</td>-->
+            </tr>
+        </tbody>
+    </table>
+    <table id="tblDiagnosis" style="width:99%">
+        <tbody>
+            <tr id="trDiagnosis" style="display:none">
+                <td id="tdDiagnosis" colspan="4" style="padding-top:14px">
+                    <b>Diagnosis:</b>
+                    <textarea id="taDiagnosis" name="taDiagnosis" displayname="Diagnosis" datatype="3" style="width:99.5%; min-height:18px; !important; vertical-align:top" rows="1"></textarea>
+                </td>
+            </tr>
+            <tr id="trPlaceofService">
+                <td id="tdPlaceofService" style="width:18%; vertical-align:top; padding-top:18px">
+                    <b>Place of Service:</b>
+                </td>
+                <td id="tdPlaceofServicedata" style="width:50%; vertical-align:top; padding-top:18px">
+                    <textarea id="taPlaceofService" name="taPlaceofService" displayname="Place of Service" datatype="3" style="width:99.5%; min-height:18px; !important; vertical-align:top" rows="1"></textarea>
+                </td>
+                <td id="tdDateofService" style="width:17%; vertical-align:top; padding-top:18px">
+                    <b>Date of Service:</b>
+                </td>
+                <td id="tdDateofServicedata" style="vertical-align:top; padding-top:18px">
+                    <textarea id="taDateofService" placeholder="MM/DD/YYYY" name="taDateofService" displayname="Date of Service" datatype="0" style="width:98%; min-height:18px; !important; vertical-align:top" rows="1"></textarea>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div id="divcptcode">
+        <table id="tblCPTCODE" style="width:99%">
+            <tbody>
+                <tr id="trCPTCODE">
+                    <td id="tdCPTCODE" style="width:10%; padding-top:12px; vertical-align:top">
+                        <label id="lblCPTCODE"><b>CPT code</b></label>
+                    </td>
+                    <td id="tdCPTCODEDATA" style="width:15%; vertical-align:top; padding-top:12px">
+                        <textarea ptnotessectionname="seccptcode" id="taCPTCODE" name="taCPTCODE" displayname="CPT CODE data" datatype="5" style="width:96%; min-height:18px; !important; vertical-align:top" rows="1"></textarea>
+                    </td>
+                    <td id="tdDXPOINTER" style="width:11%; padding-top:10px; vertical-align:top">
+                        <b>Dx pointer</b>
+                    </td>
+                    <td id="tdtaDxPointer" style="width:35%;text-align:center; vertical-align:top; padding-top:12px">
+                        <textarea id="taDxPointer" ptnotessectionname="secdiagnosis" name="taDxPointer" displayname="Dx Pointer" datatype="3" style="width:98%; min-height:18px; !important; vertical-align:top" rows="1"></textarea>
+                    </td>
+                    <td id="tdUNITS" style="width:10%; padding-top:12px; vertical-align:top">
+                        <label id="lblUNITS"><b># of Units</b></label>
+                    </td>
+                    <td id="tdtaUnits" style="vertical-align:top; padding-top:12px">
+                        <textarea id="taCPTCODE_CPTUnits" name="taCPTCODE_CPTUnits" datatype="5" maxlength="2" isdecimal="" displayname="CPTCODE_Units" style="width:99%; min-height:18px; !important; vertical-align:top" rows="1"></textarea>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <table id="tblCPTCODEDATA" style="width:99%">
+            <tbody>
+                <tr id="trCPTCODEDATA">
+                    <td id="tdTOTALFEE" style="vertical-align:top; width:10%; padding-top:12px">
+                        <b>Total Fee</b>
+                    </td>
+                    <td id="tdtaTotalFee" style="vertical-align:top; padding-top:12px">
+                        $ <textarea onblur="this.value=converttocurrencyformat(this.value)" isdecimal="" id="taTotalFee" name="taTotalFee" displayname="Total Fee" datatype="10" style="width:21.5%; min-height:18px; !important; vertical-align:top" rows="1"></textarea>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</body>
+
+</html>
